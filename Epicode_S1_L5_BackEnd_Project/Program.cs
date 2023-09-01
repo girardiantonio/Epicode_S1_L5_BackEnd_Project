@@ -20,6 +20,44 @@ namespace Epicode_S1_L5_BackEnd_Project
             public double ImpostaDovuta { get; set; }
         }
 
+        public static Contribuente MenuContribuente()
+        {
+            Console.WriteLine("Inserisci il nome:");
+            string inputNome = Console.ReadLine();
+            Console.WriteLine("Inserisci il cognome:");
+            string inputCognome = Console.ReadLine();
+            Console.WriteLine("Inserisci la data di nascita:");
+            string inputData = Console.ReadLine();
+            Console.WriteLine("Inserisci il codice fiscale:");
+            string inputCodice = Console.ReadLine();
+            Console.WriteLine("Inserisci il sesso:");
+            string inputSesso = Console.ReadLine();
+            Console.WriteLine("Inserisci il comune di residenza:");
+            string inputResidenza = Console.ReadLine();
+            Console.WriteLine("Inserisci il reddito annuale:");
+            string inputReddito = Console.ReadLine();
+
+            double reddito;
+            if (!double.TryParse(inputReddito, out reddito))
+            {
+                Console.WriteLine("Input non valido. Assicurati di inserire un valore numerico.");
+                return null;
+            }
+
+            Contribuente nuovoContribuente = new Contribuente
+            {
+                Nome = inputNome,
+                Cognome = inputCognome,
+                DataNascita = inputData,
+                CodiceFiscale = inputCodice,
+                Sesso = inputSesso,
+                ComuneResidenza = inputResidenza,
+                RedditoAnnuale = reddito
+            };
+
+            return nuovoContribuente;
+        }
+
         public static void MenuImposta()
         {
             while (true)
@@ -72,45 +110,6 @@ namespace Epicode_S1_L5_BackEnd_Project
                     Console.WriteLine("Opzione non valida, riprova");
                 }
             }
-        }
-
-
-        public static Contribuente MenuContribuente()
-        {
-            Console.WriteLine("Inserisci il nome:");
-            string inputNome = Console.ReadLine();
-            Console.WriteLine("Inserisci il cognome:");
-            string inputCognome = Console.ReadLine();
-            Console.WriteLine("Inserisci la data di nascita:");
-            string inputData = Console.ReadLine();
-            Console.WriteLine("Inserisci il codice fiscale:");
-            string inputCodice = Console.ReadLine();
-            Console.WriteLine("Inserisci il sesso:");
-            string inputSesso = Console.ReadLine();
-            Console.WriteLine("Inserisci il comune di residenza:");
-            string inputResidenza = Console.ReadLine();
-            Console.WriteLine("Inserisci il reddito annuale:");
-            string inputReddito = Console.ReadLine();
-
-            double reddito;
-            if (!double.TryParse(inputReddito, out reddito))
-            {
-                Console.WriteLine("Input non valido. Assicurati di inserire un valore numerico.");
-                return null;
-            }
-
-            Contribuente nuovoContribuente = new Contribuente
-            {
-                Nome = inputNome,
-                Cognome = inputCognome,
-                DataNascita = inputData,
-                CodiceFiscale = inputCodice,
-                Sesso = inputSesso,
-                ComuneResidenza = inputResidenza,
-                RedditoAnnuale = reddito
-            };
-
-            return nuovoContribuente;
         }
 
         public static void CalcolaImposta(Contribuente contribuente)
