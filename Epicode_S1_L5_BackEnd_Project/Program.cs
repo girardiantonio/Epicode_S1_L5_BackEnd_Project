@@ -22,7 +22,7 @@ namespace Epicode_S1_L5_BackEnd_Project
 
         public static void MenuImposta()
         {
-            do
+            while (true)
             {
                 Console.WriteLine();
                 Console.WriteLine("=========================================");
@@ -61,13 +61,19 @@ namespace Epicode_S1_L5_BackEnd_Project
                             Console.WriteLine();
                             return;
                         default:
+                            Console.WriteLine();
                             Console.WriteLine("Opzione non valida, riprova");
+                            Console.WriteLine();
                             break;
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Opzione non valida, riprova");
+                }
             }
-            while (scelta != 0);
         }
+
 
         public static Contribuente MenuContribuente()
         {
